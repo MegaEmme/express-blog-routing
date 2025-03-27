@@ -53,29 +53,38 @@ router.get('/', (req,res)=>{
     res.json(posts);
 });
 
-// show
+//show
 router.get('/:id', (req,res)=>{
-    res.send('Dettagli del dolce ' + req.params.id);
+    // res.send('Dettagli del dolce ' + id);
+    const {id} = req.params;
+    posts.forEach((element)=> {
+        if(element.slug===id){
+            res.json(element);
+        };
+    });
 });
 
-//store
+//create
 router.post('/', (req,res)=>{
     res.send('Creazione nuovo dolce');
 });
 
 //update 
 router.put('/:id', (req,res)=>{
-    res.send('Modifica integrale del dolce ' + req.params.id);
+    const {id} = req.params
+    res.send('Modifica integrale del dolce ' + id);
 });
 
-//modify
+//update 
 router.patch('/:id', (req,res)=>{
-    res.send('Modifica parziale del dolce ' + req.params.id);
+    const {id} = req.params
+    res.send('Modifica parziale del dolce ' + id);
 });
 
-//destry
+//delete
 router.delete('/:id', (req,res)=>{
-    res.send('Eliminazione del dolce ' + req.params.id);
+    const {id} = req.params
+    res.send('Eliminazione del dolce ' + id);
 });
 
 module.exports = router;
