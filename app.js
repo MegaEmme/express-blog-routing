@@ -11,7 +11,6 @@ app.use(express.static('public'));
 app.use("/posts", dolciRouter);
 
 app.get('/', (req,res) => {
-    console.log('Server del mio blog');
     res.send('<h1>Il mio server</h1>');
 });
 
