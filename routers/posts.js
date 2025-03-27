@@ -14,13 +14,13 @@ router.get('/', (req,res)=>{
 router.get('/:id', (req,res)=>{
     // res.send('Dettagli del dolce ' + id);
     const {id} = req.params;
+    let result = ('Ricetta non trovata!')
     posts.forEach((element)=> {
         if(element.slug===id){
-            res.json(element);
-        } else {
-          res.send('Ricetta non trovata!');
+            result = element;
         };
     });
+    res.json(result);
 });
 
 //create
