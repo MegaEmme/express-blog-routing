@@ -60,6 +60,8 @@ router.get('/:id', (req,res)=>{
     posts.forEach((element)=> {
         if(element.slug===id){
             res.json(element);
+        } else {
+          res.send('Ricetta non trovata!');
         };
     });
 });
@@ -69,13 +71,13 @@ router.post('/', (req,res)=>{
     res.send('Creazione nuovo dolce');
 });
 
-//update 
+//total update 
 router.put('/:id', (req,res)=>{
     const {id} = req.params
     res.send('Modifica integrale del dolce ' + id);
 });
 
-//update 
+//partial update 
 router.patch('/:id', (req,res)=>{
     const {id} = req.params
     res.send('Modifica parziale del dolce ' + id);
